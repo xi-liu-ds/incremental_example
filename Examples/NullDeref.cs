@@ -15,7 +15,7 @@ namespace Examples
         /// An example with null dereference error expected.
         /// </summary>
         public string NullDeReferenceBad(){
-            return null;
+            return "abc";
         }
     }
 }
