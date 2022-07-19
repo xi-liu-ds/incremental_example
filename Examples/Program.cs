@@ -28,14 +28,7 @@ namespace Examples
         public string NullDeReferenceOK(){
             return "abc";
         }
-
-        /// <summary>
-        /// An example with null dereference error expected.
-        /// </summary>
-        public string NullDeReferenceBad(){
-            return null;
-        }
-
+        
         /// <summary>
         /// Intraprocedural resource usage example, no leaks expected.
         /// </summary>
@@ -109,9 +102,10 @@ namespace Examples
         public static void Main(string[] args)
         {
             Program p = new Program("whatever.txt");
+            NullDeref nd = new NullDeref();
             // FIXME: should close the global streams by calling p.Cleanup()
             // Null dereference error report expected.
-            p.NullDeReferenceBad().GetHashCode();
+            nd.NullDeReferenceBad().GetHashCode();
             // No null dereference error report expected.
             p.NullDeReferenceOK().GetHashCode();
         }
